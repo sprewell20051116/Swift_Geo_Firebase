@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+pod "AFNetworking"
+pod "Google"
+pod 'MRProgress'
+pod "youtube-ios-player-helper", "~> 0.1.4"
+pod 'Facebook-iOS-SDK'
+pod 'ParseFacebookUtils'
+pod 'JGProgressHUD'
+pod 'MBProgressHUD', '~> 0.9.2'
+pod 'Flurry-iOS-SDK/FlurrySDK'
+pod "OpenInGoogleMaps"
+pod 'Firebase', '>= 2.5.0'
