@@ -30,6 +30,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vaX-5f-3QI" secondAttribute="height" multiplier="1:1" id="9jX-4c-Oa2"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="jsc-OU-4bu"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
