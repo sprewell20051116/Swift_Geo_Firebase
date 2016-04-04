@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="z01-7y-Wiy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,13 +16,76 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Geo with Firebase" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mo1-0b-kUU">
+                                <rect key="frame" x="70" y="175.5" width="181" height="25"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vaX-5f-3QI">
+                                <rect key="frame" x="16" y="260" width="288" height="288"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vaX-5f-3QI" secondAttribute="height" multiplier="1:1" id="9jX-4c-Oa2"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vaX-5f-3QI" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="7uO-xA-9n2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vaX-5f-3QI" secondAttribute="bottom" constant="20" id="8hC-As-n8k"/>
+                            <constraint firstItem="vaX-5f-3QI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ONW-vf-oyH"/>
+                            <constraint firstItem="vaX-5f-3QI" firstAttribute="top" secondItem="Mo1-0b-kUU" secondAttribute="bottom" constant="7.5" id="Prw-X8-Wbr"/>
+                            <constraint firstItem="Mo1-0b-kUU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TCI-2e-E2d"/>
+                            <constraint firstItem="vaX-5f-3QI" firstAttribute="top" secondItem="Mo1-0b-kUU" secondAttribute="bottom" constant="60" id="ZUg-cz-167"/>
+                            <constraint firstItem="vaX-5f-3QI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ixx-8Y-Hn0"/>
+                            <constraint firstItem="Mo1-0b-kUU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="jtQ-UV-t9i"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vaX-5f-3QI" secondAttribute="bottom" constant="20" id="kRh-vx-0jv"/>
+                            <constraint firstItem="vaX-5f-3QI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="nrb-7T-ZPg"/>
+                            <constraint firstItem="vaX-5f-3QI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="wOE-t0-PaB"/>
+                            <constraint firstAttribute="trailing" secondItem="vaX-5f-3QI" secondAttribute="trailing" constant="20" id="x4X-Ub-GhI"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jtQ-UV-t9i"/>
+                                <exclude reference="Prw-X8-Wbr"/>
+                                <exclude reference="ixx-8Y-Hn0"/>
+                                <exclude reference="nrb-7T-ZPg"/>
+                                <exclude reference="x4X-Ub-GhI"/>
+                                <exclude reference="8hC-As-n8k"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="d6M-lq-njc"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="MapView" destination="vaX-5f-3QI" id="KmR-Qo-Pda"/>
+                        <outlet property="mapView" destination="vaX-5f-3QI" id="reP-Rs-ViN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1096" y="317"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nEj-k6-ajR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z01-7y-Wiy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cWC-0H-WkM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jq3-8h-Oin"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9BA-KR-moo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="284" y="317"/>
         </scene>
     </scenes>
 </document>

@@ -7,12 +7,27 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
+    let locationManager = CLLocationManager() // Add this statement
+
+    @IBOutlet var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        initLocationManager();
+
+        let ref = Firebase(url: "https://glaring-inferno-1919.firebaseio.com/test");
+        ref.observeEventType(.Value, withBlock: { snapshot in
+            print(snapshot.value);
+            
+            }, withCancelBlock: { error in
+                print(error.description);
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +35,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func initLocationManager() {
+        locationManager.delegate = self;
+        locationManager.requestAlwaysAuthorization();
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        mapView.showsUserLocation = (status == .AuthorizedAlways)
+        print("lcoation");
+    }
 }
 
